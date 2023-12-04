@@ -126,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "manageReviews",
-        element: <ManageReviews></ManageReviews>
+        element: <ManageReviews></ManageReviews>,
       },
       {
         path: "manageUsers",
