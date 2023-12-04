@@ -1,10 +1,10 @@
 import Advertisement from "./Advertisement";
-import Banner from "./Banner";
-
+import SwipperBanner from './Swipper/SwipperBanner'
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            
+            <SwipperBanner></SwipperBanner>
             <Advertisement></Advertisement>
         </div>
     );
