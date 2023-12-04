@@ -122,7 +122,7 @@ const router = createBrowserRouter([
       },
       {
         path: "manageProperties",
-        element: <ManageProperties></ManageProperties>
+        element: <ManageProperties></ManageProperties>,
       },
       {
         path: "manageReviews",
