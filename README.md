@@ -1,8 +1,8 @@
-# React + Vite
+# https://my-real-state-website.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features : 
+1. This is a dummy website from which anyone can buy property.
+2. It is a react project with so many latest features like tanstack_query,tailwind,stripe_payment,swipperJs and many more
+3. User can buy property using stripe payment system(developer option)
+4. Personalize dashboard for different types of users (admin,agent,user)
+5. Backend integrated with express.js

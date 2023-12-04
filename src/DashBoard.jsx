@@ -16,8 +16,8 @@ const DashBoard = () => {
     const isUser = role === 'user'
     const isFraud = role === 'fraudAgent'
 
-        return(
-            <div className="flex">
+    return (
+        <div className="flex">
             <div className="sticky">
                 <Sidebar aria-label="Default sidebar example">
                     <Sidebar.Items>
@@ -73,6 +73,12 @@ const DashBoard = () => {
                                             My Reviews
                                         </Sidebar.Item></Link>
                                     </Sidebar.ItemGroup>)
+                                    || (isFraud &&
+                                        <Sidebar.ItemGroup>
+                                            <Link to="/dashBoard/agentProfile"><Sidebar.Item icon={HiUser}>
+                                                Agent Profile
+                                            </Sidebar.Item></Link>
+                                        </Sidebar.ItemGroup>)
                         }
 
                         <Sidebar.ItemGroup>
@@ -89,7 +95,7 @@ const DashBoard = () => {
                 <Outlet></Outlet>
             </div>
         </div>
-        )
-    }
+    )
+}
 
 export default DashBoard;
