@@ -1,5 +1,46 @@
+import Swal from "sweetalert2";
+
 const ManageUsersTableRow = ({ user }) => {
-    const { name, email, role } = user;
+    const { _id,name, email, role } = user;
+
+    const handleAdmin = (id) => {
+        console.log(id,"id id");
+        fetch(`http://localhost:5000/users/admin/${id}`,{
+            method:"PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `${user.name} Is Now An Admin`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+
+    const handleAgent = (id) => {
+        console.log(id,"id id");
+        fetch(`http://localhost:5000/users/agent/${id}`,{
+            method:"PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `${user.name} Is Now An Agent`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+
     return (
         <tr>
             <td>
@@ -10,14 +51,12 @@ const ManageUsersTableRow = ({ user }) => {
                 <div className="text-sm opacity-50">{email}</div>
             </td>
             <td>{role}</td>
-            {/* <th>
-                {
-                    (updateStatus === 'In Progress') ?
-                        <button onClick={handleUpdate} className="btn bg-green-600 hover:bg-green-400 text-white">Complete</button>
-                        :
-                        <></>
-                }
-            </th> */}
+            <th>
+                <div>
+                    <button onClick={()=>handleAdmin(_id)} className="btn btn-primary">Admin</button>
+                    <button onClick={()=>handleAgent(_id)} className="btn btn-success">Agent</button>
+                </div>
+            </th>
         </tr>
     );
 };
