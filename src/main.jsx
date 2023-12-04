@@ -130,7 +130,7 @@ const router = createBrowserRouter([
       },
       {
         path: "manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: <ManageUsers></ManageUsers>
       }
     ]
   }
