@@ -33,6 +33,7 @@ import ManageReviews from './DashBoard/Admin/ManageReviews';
 import ManageUsers from './DashBoard/Admin/ManageUsers';
 // import AdminRoute from './Authentication/AdminRoute';
 import Payment from './DashBoard/User/Payment';
+import ErrorPage from './Components/ErrorPage';
 
 const queryClient = new QueryClient()
 
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -69,6 +71,7 @@ const router = createBrowserRouter([
   {
     path: "/dashBoard",
     element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       // User
       {

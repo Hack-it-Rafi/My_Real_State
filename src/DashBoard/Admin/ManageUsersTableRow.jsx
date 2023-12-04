@@ -5,7 +5,7 @@ const ManageUsersTableRow = ({ user }) => {
 
     const handleAdmin = (id) => {
         console.log(id,"id id");
-        fetch(`http://localhost:5000/users/admin/${id}`,{
+        fetch(`https://real-state-server-seven.vercel.app/users/admin/${id}`,{
             method:"PATCH"
         })
         .then(res => res.json())
@@ -24,7 +24,7 @@ const ManageUsersTableRow = ({ user }) => {
 
     const handleAgent = (id) => {
         console.log(id,"id id");
-        fetch(`http://localhost:5000/users/agent/${id}`,{
+        fetch(`https://real-state-server-seven.vercel.app/users/agent/${id}`,{
             method:"PATCH"
         })
         .then(res => res.json())
