@@ -118,16 +118,21 @@ const ManageUsers = () => {
             </td>
             <td>{item.role}</td>
             <th>
-                <div className="flex">
+                {
+                    item.role !== 'fraudAgent' ? 
+                    <div className="flex">
                     {
                         item.role === 'admin' ? <></> : <div><button onClick={()=>handleAdmin(item._id)} className="btn btn-sm btn-primary">Make Admin</button>
                         <button onClick={()=>handleAgent(item._id)} className="btn btn-sm btn-success">Make Agent</button></div>
                     }
                     {
-                        item.role === 'agent' && <button onClick={()=>handleFraud(item._id)} className="btn btn-sm btn-warning">Mark Fraud</button>
+                        (item.role === 'agent' && <button onClick={()=>handleFraud(item._id)} className="btn btn-sm btn-warning">Mark Fraud</button>)
 
                     }
-                </div>
+                    <button className="btn btn-sm btn-error">Delete User</button>
+                </div> :
+                <></>
+                }
             </th>
         </tr>
                                 )
