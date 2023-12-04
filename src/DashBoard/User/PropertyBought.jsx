@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../useAxiosSecure";
 import BoughtPropCard from "./BoughtPropCard";
+import { AuthContext } from "../../Authentication/AuthProvider";
 
 const PropertyBought = () => {
+    const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
     const [loadedBoughtProperties, setLoadedBoughtProperties] = useState([]);
     useEffect(() => {
-        axiosSecure.get("/offeredProp")
+        axiosSecure.get(`/offeredProp?email=${user?.email}`)
         .then(res => {
             console.log(res.data);
             setLoadedBoughtProperties(res.data);
@@ -15,7 +17,7 @@ const PropertyBought = () => {
             console.error("Error fetching data:", error);
         });
 
-    }, [axiosSecure]);
+    }, [axiosSecure, user]);
     return (
         <div>
             <div className="max-w-7xl mx-auto">

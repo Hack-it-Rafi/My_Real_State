@@ -22,17 +22,16 @@ const AddProperty = () => {
             name : user?.displayName,
             image: user?.photoURL,
         }
+        const addedFrom = user?.email
         const verificationStatus = "Pending";
         const priceRange = formData.get('priceRange')
         const description = formData.get('description')
-        // ... get other form fields ...
 
         // Access the file input using the "imageFile" key
         const imgData = new FormData()
         imgData.append("image",imgFile)
-        console.log(imgData);
+        // console.log(imgData);
         
-        // console.log("afd",imageFile);
 
         fetch(
             image_hosting_api,
@@ -49,9 +48,10 @@ const AddProperty = () => {
                 agent,
                 verificationStatus,
                 description,
-                priceRange
+                priceRange,
+                addedFrom
             }
-            fetch('http://localhost:5000/properties',{
+            fetch('https://real-state-server-seven.vercel.app/properties',{
                 method:"POST",
                 headers:{
                     "content-type": "application/json",

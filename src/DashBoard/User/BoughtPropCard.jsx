@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const BoughtPropCard = ({ prop }) => {
 
-    const { image, title, agent, status, location, amount } = prop;
+    const { _id,image, title, agent, status, location, amount } = prop;
     return (
         <tr>
             <td>
@@ -25,7 +27,7 @@ const BoughtPropCard = ({ prop }) => {
             <th>
                 {
                     (status === 'accepted') ?
-                        <button className="btn bg-green-600 hover:bg-green-400 text-white">Pay</button>
+                        <Link to={`/dashboard/payment/${_id}`}><button className="btn bg-green-600 hover:bg-green-400 text-white">Pay</button></Link>
                         :
                         <></>
                 }

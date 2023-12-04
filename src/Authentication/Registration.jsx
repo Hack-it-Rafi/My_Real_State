@@ -43,7 +43,7 @@ const Registration = () => {
                 updateUser(name, photo)
                     .then(() => {
                         const saveUser = {name, email, role: "user"};
-                        axios.post("http://localhost:5000/users", saveUser)
+                        axios.post("https://real-state-server-seven.vercel.app/users", saveUser)
                         .then(res=>{
                             if(res.data.insertedId){
                                 Swal.fire({

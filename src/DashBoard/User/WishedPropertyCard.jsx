@@ -7,8 +7,9 @@ import useAxiosSecure from '../../useAxiosSecure';
 
 
 const WishedPropertyCard = ({ data }) => {
-    const { image, title, location, agent, verificationStatus, priceRange, propId } = data;
+    const { image, title, location, agent, verificationStatus, priceRange, propId, ownerEmail } = data;
     const [openModal, setOpenModal] = useState(false);
+    const [active,setActive] = useState(true)
     const { user } = useContext(AuthContext);
     console.log(data.propId);
     function onCloseModal() {
@@ -55,12 +56,13 @@ const WishedPropertyCard = ({ data }) => {
         const amount = form.amount.value;
         const status = "pending";
 
-        const offer = {propId, image, title, agent, status, location, buyerName, buyerMail, date, amount }
+        const offer = {propId, image, title, agent, ownerEmail, status, location, buyerName, buyerMail, date, amount }
         // console.log(offer);
 
         axiosSecure.post(url, offer)
             .then(res => {
                 console.log(res);
+                setActive(false)
                 Swal.fire({
                     title: 'Posted Successful!',
                     text: 'Enjoy Exploring!',
@@ -86,17 +88,20 @@ const WishedPropertyCard = ({ data }) => {
                         <FaLocationDot></FaLocationDot>
                         <p className="">{location}</p>
                     </div>
-                    <div className='flex gap-4 items-center'>
-                        <img src={agent.image} alt="nai" />
-                        <p className="py-3">{agent.name}</p>
+                    <div className="avatar flex items-center gap-2">
+                        <div className="w-12 rounded-full">
+                            <img src={agent.image} />
+                        </div>
+                        <p className='font-semibold'>{agent.name}</p>
                     </div>
+                    
                     <p className="py-3">{priceRange}</p>
                     <p className="py-3">verification Status : {verificationStatus}</p>
                     <div className='flex gap-4'>
                         <div>
                             <div>
                                 <div className="w-full flex justify-center">
-                                    <Button onClick={() => setOpenModal(true)}>Make an Offer</Button>
+                                    {!active ?<Button onClick={() => setOpenModal(true)} disabled>Make an Offer</Button>: <Button onClick={() => setOpenModal(true)}>Make an Offer</Button>}
                                 </div>
                                 <Modal show={openModal} size="md" onClose={onCloseModal} popup>
                                     <Modal.Header />

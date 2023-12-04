@@ -9,7 +9,7 @@ const Advertisement = () => {
         // Use an asynchronous function inside useEffect to fetch data
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/properties");
+                const response = await axios.get("https://real-state-server-seven.vercel.app/properties");
                 console.log(response.data);
                 setProperties(response.data); //setProperties(response.data.slice(0, 4))
             } catch (error) {

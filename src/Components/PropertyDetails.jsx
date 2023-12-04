@@ -18,7 +18,7 @@ const PropertyDetails = () => {
     }
 
     const loadedData = useLoaderData();
-    const {_id: propId, image, title, location, agent, verificationStatus, priceRange, description } = loadedData;
+    const {_id: propId, image, title, location, agent, verificationStatus, priceRange, description,addedFrom } = loadedData;
     const { user } = useContext(AuthContext);
 
     // console.log(propId);
@@ -66,7 +66,7 @@ const PropertyDetails = () => {
     const handleWishList = (event)=>{
         event.preventDefault();
 
-        const wish = {propId, image, title, location, agent, verificationStatus, priceRange, description, ownerEmail:user?.email};
+        const wish = {propId, image, title, location, agent, verificationStatus, priceRange, description, ownerEmail:addedFrom ,buyerMail: user?.email};
         axiosSecure.post(url3, wish)
             .then(res => {
                 console.log(res.data);

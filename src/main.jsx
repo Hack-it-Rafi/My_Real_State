@@ -31,7 +31,8 @@ import AdminProfile from './DashBoard/Admin/AdminProfile';
 import ManageProperties from './DashBoard/Admin/ManageProperties';
 import ManageReviews from './DashBoard/Admin/ManageReviews';
 import ManageUsers from './DashBoard/Admin/ManageUsers';
-import AdminRoute from './Authentication/AdminRoute';
+// import AdminRoute from './Authentication/AdminRoute';
+import Payment from './DashBoard/User/Payment';
 
 const queryClient = new QueryClient()
 
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: "/propertyDetails/:id",
         element: <PrivateRoute><PropertyDetails></PropertyDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/properties/${params.id}`, {
+        loader: ({ params }) => fetch(`https://real-state-server-seven.vercel.app/properties/${params.id}`, {
           credentials: 'include'
         })
       }
@@ -85,6 +86,13 @@ const router = createBrowserRouter([
       {
         path: "propertyBought",
         element: <PropertyBought></PropertyBought>
+      },
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) => fetch(`https://real-state-server-seven.vercel.app/offeredProp/${params.id}`, {
+          credentials: 'include'
+        })
       },
       // Agent
       {

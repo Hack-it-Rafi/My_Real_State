@@ -77,9 +77,11 @@ const DashBoard = () => {
                                 </>
                         }
                         <Sidebar.ItemGroup>
-                            <Sidebar.Item href="/" icon={HiTable}>
+                            <Link to='/'>
+                            <Sidebar.Item icon={HiTable}>
                                 Home
                             </Sidebar.Item>
+                            </Link>
                         </Sidebar.ItemGroup>
                     </Sidebar.Items>
                 </Sidebar>

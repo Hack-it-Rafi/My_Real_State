@@ -35,7 +35,7 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'Continue'
                 })
-                axios.post("http://localhost:5000/jwt", myUser, { withCredentials: true })
+                axios.post("https://real-state-server-seven.vercel.app/jwt", myUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                         if (res.data.success) {
@@ -70,7 +70,7 @@ const Login = () => {
             const myUser = { mail };
             setSuccess("Login success")
             const saveUser = {name: result.user?.displayName, email: result.user?.email, role: "User"};
-            axios.post("http://localhost:5000/users", saveUser)
+            axios.post("https://real-state-server-seven.vercel.app/users", saveUser)
             .then(res=>{
                 if(res.data.insertedId){
                     Swal.fire({
@@ -81,7 +81,7 @@ const Login = () => {
                     })
                 }
             })
-            axios.post("http://localhost:5000/jwt", myUser, { withCredentials: true })
+            axios.post("https://real-state-server-seven.vercel.app/jwt", myUser, { withCredentials: true })
                     .then(res => {
                         console.log(res.data);
                         if (res.data.success) {
