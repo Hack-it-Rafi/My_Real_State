@@ -113,7 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: "requestedProperties",
-        element: <RequestedProperties></RequestedProperties>
+        element: <RequestedProperties></RequestedProperties>,
       },
       // Admin
       {
